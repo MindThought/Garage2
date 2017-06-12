@@ -11,6 +11,7 @@ namespace Garage2.Controllers
         public ActionResult Index()
         {
             return View();
+            //just trying to upload to git
         }
 
         public ActionResult About()
