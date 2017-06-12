@@ -49,7 +49,24 @@ namespace Garage2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Park([Bind(Include = "Id,Type,RegistrationNumber,Color,Brand,Model,NumberOfWheels")] ParkedVehicle parkedVehicle)
         {
+            if (String.IsNullOrWhiteSpace(parkedVehicle.RegistrationNumber) || String.IsNullOrWhiteSpace(parkedVehicle.Color) || String.IsNullOrWhiteSpace(parkedVehicle.Brand) ||
+                String.IsNullOrWhiteSpace(parkedVehicle.Model))
+            {
+                ViewBag.Message = "Please fill in all fields.";
+                return View("Park");
+            }
+            if (parkedVehicle.RegistrationNumber.Length < 6 && parkedVehicle.RegistrationNumber.Length > 8)
+            {
+                ViewBag.Message = "Please keep the Registration Number between 6 and 8 characters.";
+                return View("Park");
+            }
+            if (parkedVehicle.NumberOfWheels < 0)
+            {
+                ViewBag.Message = "Please give your vehicle a non-negative number of wheels.";
+                return View("Park");
+            }
             parkedVehicle.TimeParked = DateTime.Now;
+
             if (ModelState.IsValid)
             {
                 Reciept reciept = new Reciept(parkedVehicle);
