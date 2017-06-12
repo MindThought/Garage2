@@ -52,8 +52,7 @@ namespace Garage2.Controllers
             parkedVehicle.TimeParked = DateTime.Now;
             if (ModelState.IsValid)
             {
-                Reciept reciept = new Reciept();
-
+                Reciept reciept = new Reciept(parkedVehicle);
                 db.ParkedVehicles.Add(parkedVehicle);
                 db.SaveChanges();
                 return RedirectToAction("Reciept", reciept);
@@ -80,44 +79,12 @@ namespace Garage2.Controllers
             }
             catch (Exception)
             {
-
                 return View("Index");
             }
             
         }
 
-        // GET: ParkedVehicles/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ParkedVehicle parkedVehicle = db.ParkedVehicles.Find(id);
-            if (parkedVehicle == null)
-            {
-                return HttpNotFound();
-            }
-            return View(parkedVehicle);
-        }
-
-        // POST: ParkedVehicles/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Type,RegistrationNumber,Color,Brand,Model,NumberOfWheels,TimeParked")] ParkedVehicle parkedVehicle)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(parkedVehicle).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(parkedVehicle);
-        }
-
-        // GET: ParkedVehicles/Delete/5
+       // GET: ParkedVehicles/Delete/5
         public ActionResult Retrieve(int? id)
         {
             if (id == null)
@@ -133,14 +100,16 @@ namespace Garage2.Controllers
         }
 
         // POST: ParkedVehicles/Delete/5
+        // public ActionResult RetrieveConfirmed(int id)
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult RetrieveConfirmed(int id)
+        public ActionResult Retrieve(int id)
         {
             ParkedVehicle parkedVehicle = db.ParkedVehicles.Find(id);
+            Reciept receipt = new Reciept(parkedVehicle);
             db.ParkedVehicles.Remove(parkedVehicle);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return View("Reciept", receipt);
         }
 
         protected override void Dispose(bool disposing)

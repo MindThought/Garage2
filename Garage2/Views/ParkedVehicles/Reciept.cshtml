@@ -6,6 +6,26 @@
 
 <h2>@ViewBag.Title</h2>
 
-<table>
-    
-</table>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.StartTime)</dt>
+        <dd>@Html.DisplayFor(model => model.StartTime)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.EndTime)</dt>
+        <dd>@Html.DisplayFor(model => model.EndTime)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Type)</dt>
+        <dd>@Html.DisplayFor(model => model.Type)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.RegistrationNumber)</dt>
+        <dd>@Html.DisplayFor(model => model.RegistrationNumber)</dd>
+
+        <dt>Cost</dt>
+        <dd>
+            @{
+               
+                var o = Model.HourlyRate * (Model.EndTime - Model.StartTime).TotalHours; }
+        </dd>      
+    </dl>
+</div>
