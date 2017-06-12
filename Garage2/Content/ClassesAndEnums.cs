@@ -14,6 +14,7 @@ namespace Garage2.Content
         {
                 
         }
+
         public Reciept(ParkedVehicle parkedVehicle)
         {
             this.StartTime = parkedVehicle.TimeParked;
@@ -22,6 +23,12 @@ namespace Garage2.Content
             this.RegistrationNumber = parkedVehicle.RegistrationNumber;
             this.HourlyRate = 100;
         }
+
+        public int CalculateCost()
+        {
+            return HourlyRate * (int)Math.Ceiling((EndTime - StartTime).TotalHours);
+        }
+
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public Types Type { get; set; }

@@ -101,9 +101,9 @@ namespace Garage2.Controllers
 
         // POST: ParkedVehicles/Delete/5
         // public ActionResult RetrieveConfirmed(int id)
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Retrieve")]
         [ValidateAntiForgeryToken]
-        public ActionResult Retrieve(int id)
+        public ActionResult RetrieveConfirmed(int id)
         {
             ParkedVehicle parkedVehicle = db.ParkedVehicles.Find(id);
             Reciept receipt = new Reciept(parkedVehicle);

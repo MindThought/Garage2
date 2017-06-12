@@ -24,8 +24,9 @@
         <dt>Cost</dt>
         <dd>
             @{
-               
-                var o = Model.HourlyRate * (Model.EndTime - Model.StartTime).TotalHours; }
+                int cost = Model.CalculateCost();
+            }
+            @cost
         </dd>      
     </dl>
 </div>
