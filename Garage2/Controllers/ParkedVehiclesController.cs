@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Garage2.Models;
+using Garage2.Content;
 
 namespace Garage2.Controllers
 {
@@ -46,16 +47,29 @@ namespace Garage2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Park([Bind(Include = "Id,Type,RegistrationNumber,Color,Brand,Model,NumberOfWheels,TimeParked")] ParkedVehicle parkedVehicle)
+        public ActionResult Park([Bind(Include = "Id,Type,RegistrationNumber,Color,Brand,Model,NumberOfWheels")] ParkedVehicle parkedVehicle)
         {
+            parkedVehicle.TimeParked = DateTime.Now;
             if (ModelState.IsValid)
             {
+                Reciept reciept = new Reciept();
+
                 db.ParkedVehicles.Add(parkedVehicle);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Reciept", reciept);
             }
 
             return View(parkedVehicle);
+        }
+
+        //GET: 
+        public ActionResult Reciept(Reciept reciept)
+        {
+            if (reciept!=null)
+            {
+                return View(reciept);
+            }
+            return View("Index");
         }
 
         public ActionResult List()

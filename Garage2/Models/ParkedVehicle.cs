@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-
+using Garage2.Content;
 
 namespace Garage2.Models
 {
-    public enum Types { Car, Bike, Plane, Boat, Truck };
-
     public class ParkedVehicle
     {
         public int Id { get; set; }
