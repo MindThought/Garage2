@@ -76,20 +76,30 @@ namespace Garage2.Controllers
             return View(parkedVehicle);
         }
 
-        //GET: 
+        //GET: ParkedVehicles/Receipt
         public ActionResult Reciept(Reciept reciept)
         {
             if (reciept!=null)
             {
                 return View(reciept);
             }
+            return View("Index");         
+        }
+
+        //GET: ParkedVehicles/List
+        public ActionResult List()
+        {
+            try
+            {
+                return View(db.ParkedVehicles.ToList());
+            }
             catch (Exception)
             {
-
                 return View("Index");
             }
-            
+
         }
+
 
         // GET: ParkedVehicles/Edit/5
         public ActionResult Edit(int? id)
