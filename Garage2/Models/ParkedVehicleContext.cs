@@ -9,7 +9,7 @@ namespace Garage2.Models
     public class ParkedVehicleContext : DbContext
     {
     
-        public ParkedVehicleContext() : base("DefaultConnection")
+        public ParkedVehicleContext() : base("DefaultConnection2")
         {
             return;
         }
