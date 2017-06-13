@@ -7,7 +7,7 @@
 <h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Park Vehicle", "Park")
 </p>
 <table class="table">
     <tr>
@@ -20,15 +20,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Color)
         </th>
-        @*<th>
+        <th>
             @Html.DisplayNameFor(model => model.Brand)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Model)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumberOfWheels)
-        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.TimeParked)
         </th>
@@ -46,15 +40,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Color)
         </td>
-        @*<td>
+        <td>
             @Html.DisplayFor(modelItem => item.Brand)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Model)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumberOfWheels)
-        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.TimeParked)
         </td>
