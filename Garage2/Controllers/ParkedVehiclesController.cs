@@ -83,12 +83,7 @@ namespace Garage2.Controllers
             {
                 return View(reciept);
             }
-            catch (Exception)
-            {
-
-                return View("Index");
-            }
-            
+            return View("Index");         
         }
 
         // GET: ParkedVehicles/Edit/5
