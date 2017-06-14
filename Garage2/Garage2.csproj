@@ -142,6 +142,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\Parking1.jpg" />
+    <Content Include="Content\Images\Parking2.jpg" />
+    <Content Include="Content\Images\Parking3.jpg" />
+    <Content Include="Content\Images\Parking4.jpg" />
+    <Content Include="Content\Images\Parking5.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
