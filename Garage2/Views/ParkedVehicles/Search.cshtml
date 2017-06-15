@@ -91,6 +91,10 @@
             <td>
                 @Html.DisplayFor(model => item.TimeParked)
             </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Retrieve", "Retrieve", new { id=item.Id })
+            </td>
         </tr>
     }
 </table>
