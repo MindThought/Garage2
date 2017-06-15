@@ -6,6 +6,8 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+    <br />
+    @ViewBag.Message
     <div class="form-horizontal">
         <h4>Search the Garage</h4>
         <hr />
