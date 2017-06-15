@@ -12,8 +12,12 @@
         <dt>@Html.DisplayNameFor(model => model.StartTime)</dt>
         <dd>@Html.DisplayFor(model => model.StartTime)</dd>
 
-        <dt>@Html.DisplayNameFor(model => model.EndTime)</dt>
-        <dd>@Html.DisplayFor(model => model.EndTime)</dd>
+        @if (Model.StartTime < Model.EndTime)
+        {
+            <dt>@Html.DisplayNameFor(model => model.EndTime)</dt>
+            <dd>@Html.DisplayFor(model => model.EndTime)</dd>
+        }
+        
 
         <dt>@Html.DisplayNameFor(model => model.Type)</dt>
         <dd>@Html.DisplayFor(model => model.Type)</dd>
@@ -21,12 +25,14 @@
         <dt>@Html.DisplayNameFor(model => model.RegistrationNumber)</dt>
         <dd>@Html.DisplayFor(model => model.RegistrationNumber)</dd>
 
-        <dt>Cost</dt>
-        <dd>
-            @{
-                int cost = Model.CalculateCost();
-            }
-            @cost
-        </dd>      
+        @{
+            int cost = Model.CalculateCost();
+        }
+        @if (cost > 0)
+        {
+            <dt>Cost</dt>
+            <dd>@cost</dd>
+        }
+    
     </dl>
 </div>

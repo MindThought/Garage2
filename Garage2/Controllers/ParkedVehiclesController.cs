@@ -39,6 +39,7 @@ namespace Garage2.Controllers
         // GET: Search the Garage
         public ActionResult Search(string RegistrationNumber)
         {
+
             ParkedVehicle parkedVehicle = db.ParkedVehicles.Where(p => p.RegistrationNumber == RegistrationNumber).FirstOrDefault();
             return View(parkedVehicle);
 
