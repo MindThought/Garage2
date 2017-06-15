@@ -37,10 +37,23 @@ namespace Garage2.Controllers
         }
 
         // GET: Search the Garage
-        public ActionResult Search(string RegistrationNumber)
+        public ActionResult Search(string RegistrationNumber, string Color, string Brand, string Model)
         {
-            ParkedVehicle parkedVehicle = db.ParkedVehicles.Where(p => p.RegistrationNumber == RegistrationNumber).FirstOrDefault();
-            return View(parkedVehicle);
+            if (String.IsNullOrWhiteSpace(RegistrationNumber) && String.IsNullOrWhiteSpace(Color) && String.IsNullOrWhiteSpace(Brand) &&
+    string.IsNullOrWhiteSpace(Model))
+            {
+                ViewBag.Message = "Please fill in att least one search field";
+                List<ParkedVehicle> b = new List<ParkedVehicle>();
+                return View(b);
+
+            }
+
+            var result = (from p8 in db.ParkedVehicles
+                          where
+                          (p8.Color == Color || p8.RegistrationNumber == RegistrationNumber ||
+                          p8.Model == Model || p8.Brand == Brand)
+                          select p8).Cast<ParkedVehicle>().ToList().Cast<ParkedVehicle>();
+            return View(result);
 
         }
 
