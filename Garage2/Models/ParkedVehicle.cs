@@ -10,7 +10,8 @@ namespace Garage2.Models
     public class ParkedVehicle
     {
         public int Id { get; set; }
-        public Types Type { get; set; }
+        public Member Owner { get; set; }
+        public VehicleType Type { get; set; }
         public string RegistrationNumber { get; set; }
         public string Color { get; set; }
         public string Brand { get; set; }
