@@ -14,25 +14,17 @@ namespace Garage2.Controllers
     {
         private MemberContext db = new MemberContext();
 
-        // GET: Members
-        public ActionResult Index()
+        // GET: Members/Index/Id
+        public ActionResult Index(string Id)
         {
-            return View(db.Members.ToList());
-        }
-
-        // GET: Members/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
+            if (String.IsNullOrWhiteSpace(Id))
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View(db.Members.ToList());
             }
-            Member member = db.Members.Find(id);
-            if (member == null)
-            {
-                return HttpNotFound();
-            }
-            return View(member);
+            var result = (from d8 in db.Members
+                          where (d8.Name.Contains(Id) == true)
+                          select d8).ToList();
+            return View(result);
         }
 
         // GET: Members/Create
@@ -56,63 +48,6 @@ namespace Garage2.Controllers
             }
 
             return View(member);
-        }
-
-        // GET: Members/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Member member = db.Members.Find(id);
-            if (member == null)
-            {
-                return HttpNotFound();
-            }
-            return View(member);
-        }
-
-        // POST: Members/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name")] Member member)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(member).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(member);
-        }
-
-        // GET: Members/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Member member = db.Members.Find(id);
-            if (member == null)
-            {
-                return HttpNotFound();
-            }
-            return View(member);
-        }
-
-        // POST: Members/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Member member = db.Members.Find(id);
-            db.Members.Remove(member);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
