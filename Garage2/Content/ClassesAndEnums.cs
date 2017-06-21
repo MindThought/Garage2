@@ -26,7 +26,7 @@ namespace Garage2.Content
             {
                 this.EndTime = DateTime.Now;
             }
-            this.Type = parkedVehicle.Type;
+            this.Type = parkedVehicle.Type.Type;
             this.RegistrationNumber = parkedVehicle.RegistrationNumber;
             this.HourlyRate = 100;
         }
@@ -38,7 +38,7 @@ namespace Garage2.Content
 
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-        public VehicleType Type { get; set; }
+        public Types Type { get; set; }
         public string RegistrationNumber { get; set; }
         public int HourlyRate { get; set; }
     }

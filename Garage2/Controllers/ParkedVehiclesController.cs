@@ -60,6 +60,8 @@ namespace Garage2.Controllers
         // GET: ParkedVehicles/Create
         public ActionResult Park()
         {
+            ViewBag.MemberId = new SelectList(db.Members, "Id", "Name");
+            ViewBag.VehicleTypeId = new SelectList(db.VehicleTypes, "Id", "Id");
             return View();
         }
 
@@ -68,7 +70,7 @@ namespace Garage2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Park([Bind(Include = "Id,Type,RegistrationNumber,Color,Brand,Model,NumberOfWheels")] ParkedVehicle parkedVehicle)
+        public ActionResult Park([Bind(Include = "Id,Type,RegistrationNumber,Color,Brand,Model,NumberOfWheels,MemberId")] ParkedVehicle parkedVehicle)
         {
             if (String.IsNullOrWhiteSpace(parkedVehicle.RegistrationNumber) || String.IsNullOrWhiteSpace(parkedVehicle.Color) || String.IsNullOrWhiteSpace(parkedVehicle.Brand) ||
                 String.IsNullOrWhiteSpace(parkedVehicle.Model))
@@ -85,9 +87,8 @@ namespace Garage2.Controllers
             {
                 ViewBag.Message = "Please give your vehicle a non-negative number of wheels.";
                 return View("Park");
-            }
+            }          
             parkedVehicle.TimeParked = DateTime.Now;
-
             if (ModelState.IsValid)
             {
                 Reciept reciept = new Reciept(parkedVehicle);
