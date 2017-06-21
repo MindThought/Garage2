@@ -116,8 +116,9 @@ namespace Garage2.Controllers
             {
                 return View(db.ParkedVehicles.ToList());
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                ViewBag.Message = e.Message;
                 return View("Index");
             }
 

@@ -11,7 +11,7 @@
         <table class="table">
             <tr>
                 <th>
-                    Name Searh:<br />
+                    Name Search:<br />
                     @Html.TextBox("Name")
                 </th>
             </tr>
@@ -36,13 +36,22 @@
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
-        <th></th>
+        <th>
+            Vehicles Parked
+        </th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @{ 
+                int count = item.VehiclesParked.Count();
+            }
+            
+            @count
         </td>
     </tr>
 }

@@ -12,17 +12,17 @@ namespace Garage2.Controllers
 {
     public class MembersController : Controller
     {
-        private MemberContext db = new MemberContext();
+        private ParkedVehicleContext db = new ParkedVehicleContext();
 
         // GET: Members/Index/Id
-        public ActionResult Index(string Id)
+        public ActionResult Index(string Name)
         {
-            if (String.IsNullOrWhiteSpace(Id))
+            if (String.IsNullOrWhiteSpace(Name))
             {
                 return View(db.Members.ToList());
             }
             var result = (from d8 in db.Members
-                          where (d8.Name.Contains(Id) == true)
+                          where (d8.Name.Contains(Name) == true)
                           select d8).ToList();
             return View(result);
         }

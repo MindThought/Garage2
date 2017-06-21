@@ -3,16 +3,16 @@ namespace Garage2.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class restoreDB : DbMigration
+    public partial class Really : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.ParkedVehicles", "Discriminator", c => c.String(nullable: false, maxLength: 128));
+            DropColumn("dbo.ParkedVehicles", "ActualType");
         }
         
         public override void Down()
         {
-            DropColumn("dbo.ParkedVehicles", "Discriminator");
+            AddColumn("dbo.ParkedVehicles", "ActualType", c => c.Int(nullable: false));
         }
     }
 }
