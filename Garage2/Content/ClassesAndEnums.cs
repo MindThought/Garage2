@@ -26,7 +26,7 @@ namespace Garage2.Content
             {
                 this.EndTime = DateTime.Now;
             }
-            this.Type = parkedVehicle.Type;
+            this.Type = parkedVehicle.Type.Type;
             this.RegistrationNumber = parkedVehicle.RegistrationNumber;
             this.HourlyRate = 100;
         }

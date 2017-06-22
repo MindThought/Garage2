@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Garage2.Models.Member>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<form method="get">
+    <div class="col-md-offset-0">
+        <table class="table">
+            <tr>
+                <th>
+                    Name Search:<br />
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextBox("Name")
+                </td>
+            </tr>
+        </table>
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="submit" value="Search" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<table>
+    <tr>
+        <th>
+            @Html.ActionLink("Create New", "Create")
+        </th>
+    </tr>
+</table>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            Vehicles Parked
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @{ 
+                int count = item.VehiclesParked.Count();
+            }
+            
+            @count
+        </td>
+    </tr>
+}
+
+</table>

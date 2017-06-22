@@ -128,17 +128,28 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Content\ClassesAndEnums.cs" />
+    <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\ParkedVehiclesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706121124521_Initial data config.cs" />
-    <Compile Include="Migrations\201706121124521_Initial data config.Designer.cs">
-      <DependentUpon>201706121124521_Initial data config.cs</DependentUpon>
+    <Compile Include="Migrations\201706211144313_DefinitelyLast.cs" />
+    <Compile Include="Migrations\201706211144313_DefinitelyLast.Designer.cs">
+      <DependentUpon>201706211144313_DefinitelyLast.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706211152527_Again.cs" />
+    <Compile Include="Migrations\201706211152527_Again.Designer.cs">
+      <DependentUpon>201706211152527_Again.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706211155333_Really.cs" />
+    <Compile Include="Migrations\201706211155333_Really.Designer.cs">
+      <DependentUpon>201706211155333_Really.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Member.cs" />
     <Compile Include="Models\ParkedVehicle.cs" />
     <Compile Include="Models\ParkedVehicleContext.cs" />
+    <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +210,8 @@
     <Content Include="Views\ParkedVehicles\Details.cshtml" />
     <Content Include="Views\ParkedVehicles\Index.cshtml" />
     <Content Include="Views\ParkedVehicles\List.cshtml" />
+    <Content Include="Views\Members\Create.cshtml" />
+    <Content Include="Views\Members\Index.cshtml" />
     <None Include="Views\ParkedVehicles\Search.cshtml" />
     <Content Include="Views\ParkedVehicles\Reciept.cshtml" />
   </ItemGroup>
@@ -212,8 +225,14 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706121124521_Initial data config.resx">
-      <DependentUpon>201706121124521_Initial data config.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706211144313_DefinitelyLast.resx">
+      <DependentUpon>201706211144313_DefinitelyLast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706211152527_Again.resx">
+      <DependentUpon>201706211152527_Again.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706211155333_Really.resx">
+      <DependentUpon>201706211155333_Really.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
