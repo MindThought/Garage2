@@ -42,4 +42,15 @@ namespace Garage2.Content
         public string RegistrationNumber { get; set; }
         public int HourlyRate { get; set; }
     }
+
+    public class Stats
+    {
+        public int CarsParked { get; set; }
+        public int BikesParked { get; set; }
+        public int PlanesParked { get; set; }
+        public int BoatsParked { get; set; }
+        public int TrucksParked { get; set; }
+        public int TotalNumberOfWheels { get; set; }
+        public int TotalCost { get; set; }
+    }
 }

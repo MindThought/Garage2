@@ -133,9 +133,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706221142312_Test1.cs" />
-    <Compile Include="Migrations\201706221142312_Test1.Designer.cs">
-      <DependentUpon>201706221142312_Test1.cs</DependentUpon>
+    <Compile Include="Migrations\201706221218570_Final.cs" />
+    <Compile Include="Migrations\201706221218570_Final.Designer.cs">
+      <DependentUpon>201706221218570_Final.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Member.cs" />
@@ -204,8 +204,10 @@
     <Content Include="Views\ParkedVehicles\List.cshtml" />
     <Content Include="Views\Members\Create.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
+    <Content Include="Views\ParkedVehicles\DetailedList.cshtml" />
     <None Include="Views\ParkedVehicles\Search.cshtml" />
     <Content Include="Views\ParkedVehicles\Reciept.cshtml" />
+    <Content Include="Views\ParkedVehicles\Statistics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -217,8 +219,8 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706221142312_Test1.resx">
-      <DependentUpon>201706221142312_Test1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706221218570_Final.resx">
+      <DependentUpon>201706221218570_Final.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

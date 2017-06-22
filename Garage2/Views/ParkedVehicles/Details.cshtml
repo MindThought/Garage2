@@ -25,9 +25,14 @@
         <dt>@Html.DisplayNameFor(model => model.Model)</dt>
         <dd>@Html.DisplayFor(model => model.Model)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Color)
-        </dd>
+        <dt>@Html.DisplayNameFor(model => model.Color)</dt>
+        <dd>@Html.DisplayFor(model => model.Color)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Owner.Name)</dt>
+        <dd>@Html.DisplayFor(model => model.Owner.Name)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.NumberOfWheels)</dt>
+        <dd>@Html.DisplayFor(model => model.NumberOfWheels)</dd>
 
         <dt>@Html.DisplayNameFor(model => model.TimeParked)</dt>
         <dd>@Html.DisplayFor(model => model.TimeParked)</dd>

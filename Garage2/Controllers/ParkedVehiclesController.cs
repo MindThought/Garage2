@@ -126,6 +126,42 @@ namespace Garage2.Controllers
             return View("Index");         
         }
 
+        public ActionResult Statistics() {
+
+            var vehicles = db.ParkedVehicles.ToList();
+            Stats stats = new Stats();
+            var cars = (from pt in vehicles
+                        where pt.Type.Type == Types.Car
+                        select pt);
+            stats.CarsParked = cars.Count();
+            var bikes = (from pt in vehicles
+                        where pt.Type.Type == Types.Bike
+                        select pt);
+            stats.BikesParked = bikes.Count();
+            var planes = (from pt in vehicles
+                         where pt.Type.Type == Types.Plane
+                         select pt);
+            stats.PlanesParked = planes.Count();
+            var boats = (from pt in vehicles
+                         where pt.Type.Type == Types.Boat
+                         select pt);
+            stats.BoatsParked = boats.Count();
+            var trucks = (from pt in vehicles
+                         where pt.Type.Type == Types.Truck
+                         select pt);
+            stats.TrucksParked = trucks.Count();
+            int totalWheels = 0;
+            int totalCost = 0;
+            foreach (var item in vehicles)
+            {
+                totalWheels += item.NumberOfWheels;
+                totalCost += 100 * (int)Math.Ceiling((DateTime.Now - item.TimeParked).TotalHours);
+            }
+            stats.TotalNumberOfWheels = totalWheels;
+            stats.TotalCost = totalCost;
+            return View(stats);
+        }
+
         //GET: ParkedVehicles/List
         public ActionResult List()
         {
@@ -138,7 +174,26 @@ namespace Garage2.Controllers
                 ViewBag.Message = e.Message;
                 return View("Index");
             }
+        }
 
+        //GET: ParkedVehicles/DetailedList
+        public ActionResult DetailedList(string Reg, Types? VehicleTypeId)
+        {
+            ViewBag.VehicleTypeId = new SelectList(db.VehicleTypes, "Id", "Type");
+            var result = db.ParkedVehicles.ToList();
+            if (!String.IsNullOrWhiteSpace(Reg))
+            {
+                result = (from d8 in result
+                          where d8.RegistrationNumber.Contains(Reg)
+                          select d8).ToList();
+            }
+            if (VehicleTypeId!=null)
+            {
+                result = (from d8 in result
+                          where d8.Type.Type == VehicleTypeId
+                          select d8).ToList();
+            }
+            return View(result);
         }
 
 
