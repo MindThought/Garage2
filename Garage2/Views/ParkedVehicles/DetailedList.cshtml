@@ -6,6 +6,37 @@
 
 <h2>@ViewBag.Title</h2>
 
+<form method="get">
+    <div class="col-md-offset-0">
+        <table class="table">
+            <tr>
+                <th>
+                    Reg Search:<br />
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextBox("Reg")
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Reg Search:<br />
+            </tr>
+            <tr>
+                <td>
+                    @Html.DropDownList("VehicleTypeId", null, htmlAttributes: new { @class = "form-control" })
+                </td>
+            </tr>
+        </table>
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="submit" value="Search" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
 <p>
     @Html.ActionLink("Park Vehicle", "Park")
 </p>

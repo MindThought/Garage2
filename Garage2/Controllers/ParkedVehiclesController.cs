@@ -161,17 +161,23 @@ namespace Garage2.Controllers
         }
 
         //GET: ParkedVehicles/DetailedList
-        public ActionResult DetailedList()
+        public ActionResult DetailedList(string Reg, Types? VehicleTypeId)
         {
-            try
+            ViewBag.VehicleTypeId = new SelectList(db.VehicleTypes, "Id", "Type");
+            var result = db.ParkedVehicles.ToList();
+            if (!String.IsNullOrWhiteSpace(Reg))
             {
-                return View(db.ParkedVehicles.ToList());
+                result = (from d8 in result
+                          where d8.RegistrationNumber.Contains(Reg)
+                          select d8).ToList();
             }
-            catch (Exception e)
+            if (VehicleTypeId!=null)
             {
-                ViewBag.Message = e.Message;
-                return View("Index");
+                result = (from d8 in result
+                          where d8.Type.Type == VehicleTypeId
+                          select d8).ToList();
             }
+            return View(result);
         }
 
 
