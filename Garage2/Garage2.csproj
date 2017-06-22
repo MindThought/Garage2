@@ -214,6 +214,7 @@
     <Content Include="Views\Members\Index.cshtml" />
     <None Include="Views\ParkedVehicles\Search.cshtml" />
     <Content Include="Views\ParkedVehicles\Reciept.cshtml" />
+    <Content Include="Views\ParkedVehicles\Statistics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

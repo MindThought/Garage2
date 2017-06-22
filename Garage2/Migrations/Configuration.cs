@@ -42,7 +42,11 @@ namespace Garage2.Migrations
             context.ParkedVehicles.AddOrUpdate(
                 p => p.Type,
                 new ParkedVehicle { RegistrationNumber = "abc123", Color = "red", Brand = "volvo", Model = "s80", NumberOfWheels = 4, TimeParked = DateTime.Today, MemberId = 1, VehicleTypeId = 1},
-                new ParkedVehicle { RegistrationNumber = "BAC432", Color = "Blue", Brand = "SAAB", Model = "9000", NumberOfWheels = 4, TimeParked = DateTime.Today, MemberId = 7, VehicleTypeId = 1}
+                new ParkedVehicle { RegistrationNumber = "BAC432", Color = "Blue", Brand = "SAAB", Model = "9000", NumberOfWheels = 4, TimeParked = DateTime.Today, MemberId = 6, VehicleTypeId = 1},
+                new ParkedVehicle { RegistrationNumber = "HOL321", Color = "White", Brand = "Boeing", Model = "797", NumberOfWheels = 12, TimeParked = DateTime.Today, MemberId = 2, VehicleTypeId = 4 },
+                new ParkedVehicle { RegistrationNumber = "HEJ987", Color = "Blue", Brand = "SAAB", Model = "9000", NumberOfWheels = 4, TimeParked = DateTime.Today, MemberId = 7, VehicleTypeId = 1 },
+                new ParkedVehicle { RegistrationNumber = "LOL137", Color = "red", Brand = "volvo", Model = "s80", NumberOfWheels = 4, TimeParked = DateTime.Today, MemberId = 1, VehicleTypeId = 1 },
+                new ParkedVehicle { RegistrationNumber = "DEV666", Color = "Blue", Brand = "SAAB", Model = "9000", NumberOfWheels = 4, TimeParked = DateTime.Today, MemberId = 7, VehicleTypeId = 1 }
                 );
             context.SaveChanges();
             /*

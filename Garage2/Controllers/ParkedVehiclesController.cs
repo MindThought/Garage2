@@ -110,6 +110,42 @@ namespace Garage2.Controllers
             return View("Index");         
         }
 
+        public ActionResult Statistics() {
+
+            var vehicles = db.ParkedVehicles.ToList();
+            Stats stats = new Stats();
+            var cars = (from pt in vehicles
+                        where pt.Type.Type == Types.Car
+                        select pt);
+            stats.CarsParked = cars.Count();
+            var bikes = (from pt in vehicles
+                        where pt.Type.Type == Types.Bike
+                        select pt);
+            stats.BikesParked = bikes.Count();
+            var planes = (from pt in vehicles
+                         where pt.Type.Type == Types.Plane
+                         select pt);
+            stats.PlanesParked = planes.Count();
+            var boats = (from pt in vehicles
+                         where pt.Type.Type == Types.Boat
+                         select pt);
+            stats.BoatsParked = boats.Count();
+            var trucks = (from pt in vehicles
+                         where pt.Type.Type == Types.Truck
+                         select pt);
+            stats.TrucksParked = trucks.Count();
+            int totalWheels = 0;
+            int totalCost = 0;
+            foreach (var item in vehicles)
+            {
+                totalWheels += item.NumberOfWheels;
+                totalCost += 100 * (int)Math.Ceiling((DateTime.Now - item.TimeParked).TotalHours);
+            }
+            stats.TotalNumberOfWheels = totalWheels;
+            stats.TotalCost = totalCost;
+            return View(stats);
+        }
+
         //GET: ParkedVehicles/List
         public ActionResult List()
         {
