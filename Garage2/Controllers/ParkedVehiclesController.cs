@@ -158,7 +158,20 @@ namespace Garage2.Controllers
                 ViewBag.Message = e.Message;
                 return View("Index");
             }
+        }
 
+        //GET: ParkedVehicles/DetailedList
+        public ActionResult DetailedList()
+        {
+            try
+            {
+                return View(db.ParkedVehicles.ToList());
+            }
+            catch (Exception e)
+            {
+                ViewBag.Message = e.Message;
+                return View("Index");
+            }
         }
 
 
