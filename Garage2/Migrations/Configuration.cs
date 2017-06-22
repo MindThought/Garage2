@@ -18,9 +18,9 @@ namespace Garage2.Migrations
             context.VehicleTypes.AddOrUpdate(
                 p => p.Type,
                 new VehicleType { Type = Types.Car },
-                new VehicleType { Type = Types.Boat },
                 new VehicleType { Type = Types.Bike },
                 new VehicleType { Type = Types.Plane },
+                new VehicleType { Type = Types.Boat },
                 new VehicleType { Type = Types.Truck }
                 );
             context.SaveChanges();

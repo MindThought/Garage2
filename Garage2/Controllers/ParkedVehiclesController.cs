@@ -189,6 +189,7 @@ namespace Garage2.Controllers
             }
             if (VehicleTypeId!=null)
             {
+                VehicleTypeId -= 1;
                 result = (from d8 in result
                           where d8.Type.Type == VehicleTypeId
                           select d8).ToList();
