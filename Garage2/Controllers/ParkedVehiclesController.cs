@@ -21,6 +21,22 @@ namespace Garage2.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult List(string RegistrationNumber, string Type) //Patrick: Ny sökfunktion nedan
+        {
+            if (String.IsNullOrWhiteSpace(RegistrationNumber) || String.IsNullOrWhiteSpace(Type))
+            {
+                ViewBag.Message = "Please fill in all search fields";
+                List<ParkedVehicle> b = new List<ParkedVehicle>();
+                return View(b);
+            }
+            var x = db.ParkedVehicles.Where(c => c.RegistrationNumber == RegistrationNumber);
+            var y = x.Where(b => b.Type.Type.ToString() == Type);
+
+            return View(y);
+        }
+
         // GET: ParkedVehicles/Details/5
         public ActionResult Details(int? id)
         {

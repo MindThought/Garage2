@@ -133,17 +133,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706211144313_DefinitelyLast.cs" />
-    <Compile Include="Migrations\201706211144313_DefinitelyLast.Designer.cs">
-      <DependentUpon>201706211144313_DefinitelyLast.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706211152527_Again.cs" />
-    <Compile Include="Migrations\201706211152527_Again.Designer.cs">
-      <DependentUpon>201706211152527_Again.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706211155333_Really.cs" />
-    <Compile Include="Migrations\201706211155333_Really.Designer.cs">
-      <DependentUpon>201706211155333_Really.cs</DependentUpon>
+    <Compile Include="Migrations\201706221142312_Test1.cs" />
+    <Compile Include="Migrations\201706221142312_Test1.Designer.cs">
+      <DependentUpon>201706221142312_Test1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Member.cs" />
@@ -225,14 +217,8 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706211144313_DefinitelyLast.resx">
-      <DependentUpon>201706211144313_DefinitelyLast.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706211152527_Again.resx">
-      <DependentUpon>201706211152527_Again.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706211155333_Really.resx">
-      <DependentUpon>201706211155333_Really.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706221142312_Test1.resx">
+      <DependentUpon>201706221142312_Test1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

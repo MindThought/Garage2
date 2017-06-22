@@ -6,6 +6,39 @@
 
 <h2>@ViewBag.Title</h2>
 
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <br />
+    @ViewBag.Message
+    <div class="form-horizontal">
+        <h4>Search the Garage</h4>
+        <hr />
+        <form method="get">
+            <div class="col-md-offset-0">
+                <table class="table">
+                    <tr>
+                        <th>
+                            RegistrationNumber<br />
+                            @Html.TextBox("RegistrationNumber")
+                        </th>
+                        <th>
+                            Type<br />
+                            @Html.TextBox("Type")
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </form>
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="submit" value="Search" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
 <p>
     @Html.ActionLink("Park Vehicle", "Park")
 </p>

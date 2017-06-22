@@ -8,7 +8,7 @@ namespace Garage2.Models
 {
     public class ParkedVehicleContext : DbContext
     {
-        public ParkedVehicleContext() : base("DefaultConnection2")
+        public ParkedVehicleContext() : base("DefaultConnection222")
         {
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ParkedVehicleContext>());
             return;
